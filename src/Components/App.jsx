@@ -1,8 +1,14 @@
+import "../styles/App.css";
+import Layout from "./Layout";
+import HomePage from "./Pages/HomePage";
+
 function App() {
   return (
     <>
       <div className="App">
-        <div>Quiz App</div>
+        <Layout>
+          <HomePage></HomePage>
+        </Layout>
       </div>
     </>
   );
