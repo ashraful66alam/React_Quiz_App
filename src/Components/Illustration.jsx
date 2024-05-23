@@ -1,9 +1,9 @@
-import signupImg from "../assets/images/signup.svg";
 import classes from "../styles/Illustration.module.css";
-function Illustration() {
+// eslint-disable-next-line react/prop-types
+function Illustration({ imgsrc }) {
   return (
     <div className={classes.illustration}>
-      <img src={signupImg} alt="Signup" />
+      <img src={imgsrc} alt="Signup" />
     </div>
   );
 }

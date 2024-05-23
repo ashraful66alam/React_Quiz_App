@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import classes from "../styles/Button.module.css";
-function Button({ children }) {
+function Button({ buttonClass, children }) {
   return (
-    <button type="submit" className={classes.button}>
-      <span>{children}</span>
-    </button>
+    <button className={`${classes.button} ${buttonClass}`}>{children}</button>
   );
 }
 

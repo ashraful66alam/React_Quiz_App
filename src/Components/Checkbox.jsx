@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
-function Checkbox({ text, ...rest }) {
+function Checkbox({ labelClass, text, ...rest }) {
   return (
-    <label>
+    <label className={labelClass}>
       <input type="checkbox" {...rest} />
       <span> {text}</span>
     </label>
