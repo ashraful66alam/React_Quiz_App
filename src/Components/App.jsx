@@ -1,7 +1,8 @@
 import "../styles/App.css";
 import Layout from "./Layout";
+import Result from "./Pages/Result";
 // import Login from "./Pages/Login";
-import Quiz from "./Pages/Quiz";
+// import Quiz from "./Pages/Quiz";
 // import HomePage from "./Pages/HomePage";
 // import Signup from "./Pages/Signup";
 
@@ -13,7 +14,8 @@ function App() {
           {/* <HomePage /> */}
           {/* <Signup /> */}
           {/* <Login /> */}
-          <Quiz></Quiz>
+          {/* <Quiz></Quiz> */}
+          <Result></Result>
         </Layout>
       </div>
     </>
