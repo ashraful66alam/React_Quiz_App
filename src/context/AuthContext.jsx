@@ -1,11 +1,19 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import "../firebase";
 
 const AuthContext = React.createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
-  return useContext(AuthContext)
+  return useContext(AuthContext);
 }
 // eslint-disable-next-line react/prop-types
 export function AuthProvider({ children }) {
@@ -16,10 +24,10 @@ export function AuthProvider({ children }) {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      setLoading(false)
-    })
+      setLoading(false);
+    });
     return unsubscribe;
-  }, [])
+  }, []);
 
   // signup function
   async function signup(email, password, username) {
@@ -29,13 +37,13 @@ export function AuthProvider({ children }) {
     // update profile
     await updateProfile(auth.currentUser, {
       displayName: username,
-    })
+    });
 
     const user = auth.currentUser;
 
     setCurrentUser({
-      ...user
-    })
+      ...user,
+    });
   }
 
   // login function
@@ -47,19 +55,19 @@ export function AuthProvider({ children }) {
   // logout function
   function logout() {
     const auth = getAuth();
-    return signOut(auth)
+    return signOut(auth);
   }
 
   const value = {
     currentUser,
     signup,
     login,
-    logout
-  }
+    logout,
+  };
 
   return (
-    <AuthContext.Provieder value={value}>
+    <AuthContext.Provider value={value}>
       {!loading && children}
-    </AuthContext.Provieder>
+    </AuthContext.Provider>
   );
 }
