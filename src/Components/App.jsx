@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 import "../styles/App.css";
 import Layout from "./Layout";
 import HomePage from "./Pages/HomePage";
@@ -6,7 +7,6 @@ import Login from "./Pages/Login";
 import Quiz from "./Pages/Quiz";
 import Result from "./Pages/Result";
 import Signup from "./Pages/Signup";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +53,9 @@ function App() {
   return (
     <>
       <div className="App">
-        <RouterProvider router={router} />;
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </div>
     </>
   );
